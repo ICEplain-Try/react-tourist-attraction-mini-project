@@ -1,0 +1,224 @@
+.App {
+    font-family: Arial, sans-serif;
+    margin: 20px auto;
+    max-width: 800px;
+    padding: 20px;
+  }
+  
+  .header {
+    text-align: center;
+    color: #007acc;
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  .search-container {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .search-input {
+    padding: 10px;
+    font-size: 16px;
+    width: 100%;
+    max-width: 400px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .results-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .result-item {
+    display: flex;
+    align-items: stretch;
+    gap: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    min-height: 200px; /* เพิ่มความสูงขั้นต่ำ */
+  }
+  
+
+  .result-image {
+    flex: 0 0 auto; /* ให้ .result-image ใช้พื้นที่ตามขนาดเนื้อหา */
+    cursor: pointer;
+  }
+  
+  .result-image img {
+    width: auto; /* ความกว้าง auto อิงจากความสูง */
+    height: 200px; /* ความสูงให้ครอบคลุม */
+    object-fit: cover; /* ปรับรูปภาพให้ครอบคลุมพื้นที่ */
+    border-radius: 25px;
+    object-fit: cover;
+    transition: transform 0.3s ease;  
+  }
+
+  .result-image:hover img {
+    transform: scale(1.05); /* เพิ่มเอฟเฟกต์ขยายเมื่อ Hover */
+  }
+  
+  .result-details {
+    flex: 1; /* ให้ .result-details ใช้พื้นที่ที่เหลืออยู่ */
+    position: relative; /* ใช้เพื่อจัดตำแหน่งลูกใน container */
+  }
+  
+  .result-title {
+    color: #007acc;
+    margin: 0 0 10px;
+    text-decoration: none;
+  }
+  
+  .result-title:hover {
+    text-decoration: underline;
+  }
+  
+  .result-description {
+    color: #555;
+    margin: 0 0 10px;
+  }
+  
+  .result-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+  }
+  
+  .tag {
+    background-color: #f0f0f0;
+    color: #007acc;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 5px 10px;
+    font-size: 12px;
+    cursor: pointer;
+  }
+  
+  .tag:hover {
+    background-color: #e0e0e0;
+  }
+
+  .result-photos {
+    display: flex; /* ใช้ Flexbox สำหรับจัดรูปภาพ */
+    justify-content: flex-start; /* จัดระยะชิดซ้าย */
+    gap: 10px; /* เพิ่มช่องไฟระหว่างรูปภาพ */
+    margin-top: 10px; /* เพิ่มระยะห่างจาก .result-tags */
+  }
+  
+  .result-photos .photo {
+    width: 80px; /* ความกว้างของรูปภาพ */
+    height: 60px; /* ความสูงของรูปภาพ */
+    object-fit: cover; /* ให้รูปภาพครอบพื้นที่ */
+    border-radius: 5px; /* เพิ่มขอบมน */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* เพิ่มเงา */
+  }
+
+  .read-more {
+    color: #007acc;
+    font-weight: bold;
+    cursor: pointer;
+  }
+
+  .read-more:hover {
+    text-decoration: underline;
+  }
+
+  .no-results {
+    text-align: center;
+    font-size: 18px;
+    color: #ff6b6b;
+    margin: 20px 0;
+  }
+
+  .copy-url {
+    position: absolute; /* จัดตำแหน่งในมุมขวาล่าง */
+    bottom: 10px;
+    right: 10px;
+    cursor: pointer;
+  }
+  
+  .copy-url img {
+    width: 24px; /* ขนาดไอคอน */
+    height: 24px;
+    object-fit: contain;
+    transition: transform 0.2s; /* เพิ่มเอฟเฟกต์เมื่อ hover */
+  }
+  
+  .copy-url img:hover {
+    transform: scale(1.2); /* ขยายไอคอนเมื่อวางเมาส์ */
+  }
+
+/* Responsive for Mobile */
+
+@media (max-width: 660px) {
+  .result-item {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .result-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+    width: 100%; /* ใช้พื้นที่เต็มของ container */
+  }
+
+  .result-image img {
+    max-width: 80%; /* กำหนดให้รูปภาพมีขนาดเหมาะสม */
+    height: auto; /* ปรับความสูงอัตโนมัติ */
+    object-fit: cover; /* รูปภาพครอบพื้นที่โดยไม่เสียสัดส่วน */
+    border-radius: 8px; /* เพิ่มขอบมน */
+  }
+
+  .result-details {
+    order: 1;
+    width: 100%;
+  }
+
+  .result-title {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+
+  .result-description,
+  .result-tags {
+    text-align: center;
+  }
+
+  .result-tags {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 5px;
+    margin-top: 10px;
+  }
+
+  .result-photos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-top: 10px;
+  }
+
+  .result-photos .photo {
+    width: 80px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  .copy-url {
+    position: static;
+    margin-top: 10px;
+  }
+}
